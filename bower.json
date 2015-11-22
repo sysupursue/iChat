@@ -1,0 +1,26 @@
+{
+  "name": "iChat",
+  "version": "0.0.1",
+  "homepage": "https://github.com/sysupursue/iChat",
+  "authors": [
+    "panbinbin <panbb3@mail2.sysu.edu.cn>"
+  ],
+  "description": "前端部分使用到得框架",
+  "keywords": [
+    "bootstrap",
+    "jquery"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "bin/views/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4"
+  }
+}

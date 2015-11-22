@@ -1,0 +1,17 @@
+extends ../layout
+block metadescription
+    title 用户登录
+block stylesheet
+    link(rel="stylesheet", href="./frontend/register.css")
+block preloadscripts
+block content
+    .register-wrapper
+        .register-container
+            from(action="/register" method="post")
+                h2 welecome iChat, have fun!
+                .username
+                    input(type="text" placeholder="电子邮箱/用户名")
+                .password
+                    input(type="text" placeholder="密码")
+                .buttons
+                    input(type="button" value="注册")
