@@ -4,14 +4,19 @@ block metadescription
 block stylesheet
     link(rel="stylesheet", href="./frontend/register.css")
 block preloadscripts
+    script(type="text/javascript",src="/frontend/register.js")
 block content
     .register-wrapper
         .register-container
-            from(action="/register" method="post")
-                h2 welecome iChat, have fun!
+            from(id="registerform", action="javascript:alert('success!');", method="post")
+                h2 Welcome iChat, have fun!
                 .username
-                    input(type="text" placeholder="电子邮箱/用户名")
+                    input(type="text" , name="username" ,placeholder="用户名")
+                .email
+                    input(type="text",name="email",placeholder="邮箱")
                 .password
-                    input(type="text" placeholder="密码")
+                    input(type="text" , name="password" ,placeholder="密码")
+                .repassword
+                    input(type="text" , name="repassword" ,placeholder="再次输入密码")         
                 .buttons
-                    input(type="button" value="注册")
+                    input(type="submit" , id="register-button" ,value="注册")

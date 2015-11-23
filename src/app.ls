@@ -1,5 +1,5 @@
 require! <[express path serve-favicon cookie-parser body-parser http ../config ./controllers/router]>
-require! {morgan:logger}
+require! {morgan:logger, './models/dbinit': mongoinit}
 
 app=express()
 #server
@@ -20,34 +20,15 @@ app.set('views',path.join(__dirname,'views'))
 app.set('view engine', 'jade')
 
 app.use(logger('dev'))
-
 app.use(cookieParser())
-
-# # ueditor setup
-# app.use "/ueditor/ue", ueditor path.join(path.resolve('./'), 'public'), (req, res, next)!->
-#   if req.query.action is 'uploadimage'
-#     foo = req.ueditor
-#     imgname = req.ueditor.filename
-
-#     img_url = '/news-images/'
-#     res.ue_up(img_url)
-
-#   else if req.query.action is 'listimage'
-#     dir_url = '/news-images/'
-#     res.ue_list(dir_url)
-
-#   else
-#     res.setHeader('Content-Type', 'application/json')
-#     res.redirect('/ueditor/nodejs/config.json')
-
-
-
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static(path.join(__dirname, 'views')))
 app.use(express.static(path.join(__dirname, 'stylesheets')))
+app.use(express.static(path.join(__dirname, 'controllers')))
+app.use(express.static(path.join(__dirname, 'models')))
 
 
-# mongoinit!
+mongoinit!
 
 # app.use express-session {
 #     secret: 'mwl-ecch'

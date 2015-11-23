@@ -31,7 +31,21 @@ module.exports = (grunt) ->
     livescript:
       options:
         bare: true
+      
+      controllers:
+        cwd:"src/"
+        src:["controllers/*.ls"]
+        dest:"bin/"
+        ext:".js"
+        expand:true
 
+      models:
+        cwd:"src/"
+        src:["models/*.ls"]
+        dest:"bin/"
+        ext:".js"
+        expand:true
+        
       client:
         cwd: "src/"
         src: ["views/**/*.ls"]

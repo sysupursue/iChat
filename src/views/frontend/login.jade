@@ -4,17 +4,18 @@ block metadescription
 block stylesheet
     link(rel="stylesheet", href="./frontend/login.css")
 block preloadscripts
+    script(type="text/javascript",src="/frontend/login.js")
 block content
     .login-wrapper
         .login-container
             from(action="/login" method="post")
                 .username
-                    input(type="text" placeholder="用户名")
+                    input(type="text" name ="username" placeholder="用户名")
                 .password
-                    input(type="text" placeholder="密码")
+                    input(type="text" name="password" placeholder="密码")
                 .others
-                    input(type="checkbox" name="keepme")
+                    input(type="checkbox" name="remember")
                     a(href="/") 忘记密码
                 .buttons
-                    input(type="button" value="登录")
-                    input(type="button" value="注册")
+                    input(id="login-button" type="button" value="登录")
+                    input(id="register-button" type="button" value="注册")

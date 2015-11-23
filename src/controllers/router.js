@@ -1,17 +1,16 @@
 var express = require('express');
 var router = express.Router();
+var sign = require('./frontend/sign')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('./frontend/index');
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('./frontend/login');
-});
+router.get('/login', sign.showLogin);
+router.post('/login',sign.login);
 
-router.get('/register', function(req, res, next) {
-  res.render('./frontend/register');
-});
+router.get('/register', sign.showRegister);
+router.post('/register',sign.register);
 
 module.exports = router;
