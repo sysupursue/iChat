@@ -1,0 +1,137 @@
+/******************************
+ *
+ *聊天界面左边部分样式
+ *
+ ******************************/
+.self
+    padding: 20px 10px;
+.self-avatar img
+    width: 60px 
+    height: 60px
+
+.list-wrapper
+    background-color: rgb(34,37,43)
+    color: white
+    height: 880px
+
+.user-item-wrapper
+    padding: 12px 18px 11px
+
+.user-avatar
+    width: 40px
+    height: 40px
+    border-radius: 2px
+    float: left
+.time
+    float: right
+
+.user-info
+    display: inline-block
+    margin-left: 10px
+    p 
+        margin: 0px
+
+.active
+    background-color: #3A3F45
+
+/******************************
+ *
+ *聊天界面右边部分样式
+ *
+ ******************************/
+.chat-title
+    height: 30px
+    text-align: center
+
+// 聊天内容部分样式
+.chat-content
+    height: 600px
+    background-color: rgba(#c3c3c3, 0.8)
+    padding: 0px 20px
+
+//用户本人发送信息时的信息样式
+.self-message-item
+    position: relative
+    direction: rtl
+    display: block
+    height: 80px
+
+.self-message-avatar
+    width: 40px 
+    height: 40px
+    border-radius: 2px
+    float: right
+
+.self-message-box
+    display: inline-block
+    margin-right: 10px
+
+.self-message-info
+    position: relative
+
+.self-message-info:before
+    content: ' '
+    width: 0px
+    height: 0px
+    border-top: 6px solid transparent
+    border-bottom: 6px solid transparent 
+    border-left: 6px solid white
+    position: absolute
+    top: 10px
+    right: -4px
+
+//用户接收到别人发送过来的信息样式
+.other-message-item
+    position: relative
+    display: block
+    height: 80px
+
+.user-message-avatar
+    width: 40px 
+    height: 40px
+    border-radius: 2px
+    float: left
+
+.message-box
+    margin-left: 10px
+    display: inline-block
+
+.message-info   
+    position: relative
+
+.message-info:before
+    content: ' '
+    width: 0px
+    height: 0px
+    border-top: 6px solid transparent
+    border-bottom: 6px solid transparent 
+    border-right: 6px solid white
+    position: absolute
+    top: 10px
+    left: -4px
+
+.chat-sending-area
+    position: relative
+    height: 200px
+    background-color: rgba(#c3c3c3, 0.8)
+
+.chat-toolbar
+    height: 30px
+
+.tool-item
+    margin: 0px 20px
+    line-height: 30px
+
+.edit-area
+    height: 13rem
+    overflow-x: hidden
+    overflow-y: auto
+    padding-left: 20px
+    outline: 0
+    border: 0
+    font-size: 14px
+    resize: none
+
+.button-area
+    direction: rtl
+    padding-right: 20px

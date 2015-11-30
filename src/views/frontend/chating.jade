@@ -1,0 +1,89 @@
+extends ../layout
+block stylesheet
+    link(rel="stylesheet", href="./frontend/chating.css")
+block preloadscripts
+block content
+    //- 好友
+    mixin user-item(userinfo)
+        .user-item-wrapper
+            img.user-avatar(src="/avatar.jpeg", alt="")
+            .user-info
+                span= userinfo
+                p.latest-message nothing
+            span.time 8:10
+    //- 好友 会议 tab
+    mixin tabs
+        nav
+            ul.nav.nav-tabs(role="tablist")
+                li.avtive(role="presentation")
+                    a(href="#" aria-controls="home" role="tab" data-toggle="tab") 好友
+                li(role="presentation")
+                    a(href="#" aria-controls="home" role="tab" data-toggle="tab") 会议
+                li(role="presentation")
+                    a(href="#" aria-controls="home" role="tab" data-toggle="tab") 设置
+    //- 聊天功能区
+    mixin chat-toolbar
+        .chat-toolbar
+            a.tool-item.chat-expression(href="#") 表情
+            a.tool-item.chat-cut(href="#") 截屏
+            a.tool-item.chat-files(href="#") 文件
+            a.tool-item.chat-audio(href="#") 音频
+            a.tool-item.chat-video(href="#") 视频
+
+    //- 其他人发送过来的信息样式
+    mixin other-message-item
+        .message-item
+            img.user-message-avatar(src="/a.jpg", alt="用户头像")
+            .message-box
+                span 自命不凡
+                .message-info(id="message-info")
+                    pre 你在干嘛？
+    
+    //- 本人发送信息时的信息样式
+    mixin self-message-item
+        .self-message-item
+            img.self-message-avatar(src="/a.jpg", alt="用户头像")
+            .self-message-box
+                span 自命不凡
+                .self-message-info(id="message-info")
+                    pre 我刚吃完饭回实验室呢
+
+    .chat-wrapper.container
+        .row
+            .list-wrapper.col-lg-3.col-md-3.col-sm-3.col-xs-3
+                .self
+                    .self-avatar
+                        img(src="/a.jpg", alt="")
+                        span 自命不凡
+                .search.input-group.input-group-sm
+                    span.input-group-addon.glyphicon.glyphicon-search(id="basic-addon1")
+                    input.form-control(type="text" placeholder="输入搜索内容" aria-describedby="basic-addon1")
+                //- .search
+                //-     input.search-input(type="text" placeholder="搜索")
+                +tabs
+                .user-list
+                    +user-item('user1')
+                    +user-item('user2')
+                    +user-item('user3')
+                    +user-item('user4')
+                    +user-item('user5')
+            .chat-area-wrapper.col-lg-9.col-md-9.col-sm-9.col-xs-9
+                .chat-title
+                    h4 聊天名称
+                .chat-content
+                    +other-message-item
+                hr
+                .chat-sending-area
+                    .chat-function-area-wrapper
+                        +chat-toolbar
+                        textarea.edit-area.col-lg-12.col-md-12.col-sm-12.col-xs-12
+                    .button-area
+                        input.message-send-btn(type="button" value="发送")
+                        span 按住cmd+enter键
+block delayedscripts
+    script(type="text/javascript",src="./frontend/chating.js")
+
+
+
+
+

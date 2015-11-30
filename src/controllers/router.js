@@ -4,7 +4,7 @@ var sign = require('./frontend/sign')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('./frontend/index');
+  res.render('./frontend/chating');
 });
 
 router.get('/login', sign.showLogin);
@@ -14,3 +14,4 @@ router.get('/register', sign.showRegister);
 router.post('/register',sign.register);
 
 module.exports = router;
+ 

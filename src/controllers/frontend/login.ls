@@ -11,17 +11,16 @@ click-login-button = !->
 
     #成功服务器返回的数据，并跳转到对应用户的聊天界面
     success:(data)!->
-        console.log "Data:" + data
+        console.log "success"
+        location.href = "/"
 
     error:(jqXHR,text-status)!->
         console.log "登录数据发送失败"
 
 $ !->
     $ '#login-button' .click click-login-button
+
     $ '#register-button' .click !-> 
         location.href = '/register'
         console.log "login click"
-
-
-
 
