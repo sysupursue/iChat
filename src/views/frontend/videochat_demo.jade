@@ -1,0 +1,13 @@
+extends ../layout
+block stylesheet
+    link(rel="stylesheet", href="./frontend/videochat_demo.css")
+block preloadscripts
+    //- script(type="text/javascript",src="/frontend/videochatclient_demo.js")
+block content
+    .video-area
+        video(id="local-media" autoplay).local-media
+        video(id="remote-media" autoplay).remote-media
+    input.video-chat-btn(type="button" value="发起视频通话")
+block delayedscripts
+    script(type="text/javascript",src="/frontend/videochatclient_demo.js")
+    

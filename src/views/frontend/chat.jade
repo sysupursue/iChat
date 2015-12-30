@@ -1,6 +1,6 @@
 extends ../layout
 block stylesheet
-    link(rel="stylesheet", href="./frontend/chating.css")
+    link(rel="stylesheet", href="./frontend/chat.css")
 block preloadscripts
 block content
     //- 好友
@@ -23,12 +23,12 @@ block content
                     a(href="#" aria-controls="home" role="tab" data-toggle="tab") 设置
     //- 聊天功能区
     mixin chat-toolbar
-        .chat-toolbar
-            a.tool-item.chat-expression(href="#") 表情
-            a.tool-item.chat-cut(href="#") 截屏
-            a.tool-item.chat-files(href="#") 文件
-            a.tool-item.chat-audio(href="#") 音频
-            a.tool-item.chat-video(href="#") 视频
+        .text-chat-toolbar
+            a.tool-item(id="chat-expression" href="#") 表情
+            a.tool-item(id="chat-cut" href="#") 截屏
+            a.tool-item(id="chat-files" href="#") 文件
+            a.tool-item(id="chat-audio" href="#") 音频
+            a.tool-item(id="chat-video" href="#") 视频
 
     //- 其他人发送过来的信息样式
     mixin other-message-item
@@ -48,6 +48,7 @@ block content
                 .self-message-info(id="message-info")
                     pre 我刚吃完饭回实验室呢
 
+
     .chat-wrapper.container
         .row
             .list-wrapper.col-lg-3.col-md-3.col-sm-3.col-xs-3
@@ -58,32 +59,39 @@ block content
                 .search.input-group.input-group-sm
                     span.input-group-addon.glyphicon.glyphicon-search(id="basic-addon1")
                     input.form-control(type="text" placeholder="输入搜索内容" aria-describedby="basic-addon1")
-                //- .search
-                //-     input.search-input(type="text" placeholder="搜索")
                 +tabs
                 .user-list
-                    +user-item('user1')
-                    +user-item('user2')
-                    +user-item('user3')
-                    +user-item('user4')
-                    +user-item('user5')
-            .chat-area-wrapper.col-lg-9.col-md-9.col-sm-9.col-xs-9
-                .chat-title
+
+            //- 文本聊天模式
+            .text-chat-wrapper.col-lg-9.col-md-9.col-sm-9.col-xs-9
+                .text-chat-title
                     h4 聊天名称
-                .chat-content
-                    +other-message-item
+                .text-chat-content
                 hr
-                .chat-sending-area
-                    .chat-function-area-wrapper
+                .text-chat-sending-area
+                    .text-chat-function-area-wrapper
                         +chat-toolbar
                         textarea.edit-area.col-lg-12.col-md-12.col-sm-12.col-xs-12
                     .button-area
                         input.message-send-btn(type="button" value="发送")
                         span 按住cmd+enter键
+
+            //- 视频聊天模式
+            .video-chat-wrapper.hidden.col-lg-9.col-md-9.col-sm-9.col-xs-9
+                .self-view
+                    video(id="self-view" autoplay)
+                    .video-cover
+                        .video-chat-title
+                            span 房间名
+                        .participant-list
+                            .participant-avatar-item
+                        .participant-view-list
+                            .participant-view-item
+                        .video-toolbar
+                            input.hangup(type="button" value="挂断")
 block delayedscripts
-    script(type="text/javascript",src="./frontend/chating.js")
-
-
+    script(type="text/javascript",src="./frontend/chatrtc-client.js")
+    script(type="text/javascript",src="./frontend/chat.js")
 
 
 

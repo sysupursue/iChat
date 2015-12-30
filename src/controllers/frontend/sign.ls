@@ -21,35 +21,35 @@ exports.register = function(req,res,next)
     email-pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/
     white-space-pattren = /\s/
 
-    # 用户名验证
-    if username isnt undefined
-        if username.length < 3
-            console.log '用户名长度至少为3位'
-        if username.length > 15
-            console.log  '用户名长度至多为15位'
+    # # 用户名验证
+    # if username isnt undefined
+    #     if username.length < 3
+    #         console.log '用户名长度至少为3位'
+    #     if username.length > 15
+    #         console.log  '用户名长度至多为15位'
     
-    # 邮箱验证
-    if email isnt undefined
-        unless email-pattern.test email
-            console.log '邮箱格式不正确'
+    # # 邮箱验证
+    # if email isnt undefined
+    #     unless email-pattern.test email
+    #         console.log '邮箱格式不正确'
 
-    # 密码验证
-    if password isnt undefined
-        if password.length < 5 and password.length isnt 0
-            console.log '密码长度至少为5位'
-        if password.length < 5
-            console.log  '密码长度至少为5位'
-        if password.length > 16
-            console.log '密码长度至多为16位'
-        if (password.match white-sapce-pattren ) isnt null
-            console.log '密码中不能包含空白字符'
+    # # 密码验证
+    # if password isnt undefined
+    #     if password.length < 5 and password.length isnt 0
+    #         console.log '密码长度至少为5位'
+    #     if password.length < 5
+    #         console.log  '密码长度至少为5位'
+    #     if password.length > 16
+    #         console.log '密码长度至多为16位'
+    #     if (password.match white-sapce-pattren ) isnt null
+    #         console.log '密码中不能包含空白字符'
     
-    #密码确认
-    if repassword isnt undefined
-        if password isnt repassword
-            console.log '两次输入的密码不一致'
+    # #密码确认
+    # if repassword isnt undefined
+    #     if password isnt repassword
+    #         console.log '两次输入的密码不一致'
 
-    # mongoose api
+    # # mongoose api
     User.find-one $or:[{username:username},{email:email}],(err,user)->
         if err 
             console.log "数据库错误"
